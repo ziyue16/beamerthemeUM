@@ -20,6 +20,17 @@ An example for using these options is given below:
 \usetheme[navigation, sectiontitles]{UM}
 ```
 
+## 16:9 aspect ratio adjustment
+
+You can simply replace the first line in `example.tex' with:
+```
+\documentclass[pdfpagelabels=false, usepdftitle=false, aspectratio=169]{beamer}
+```
+and replace the inserted title background image at line 178 in `beamerthemeUM.sty' with a wide version:
+```
+\includegraphics[width=\paperwidth]{UMTitlePage_wide.PNG}
+```
+
 ## Preview
 <img src="exampleimage1.PNG" height="480">
 <img src="exampleimage2.PNG" height="480">
