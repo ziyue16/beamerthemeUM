@@ -21,7 +21,7 @@ An example for using these options is given below:
 ```
 
 ## Preview
-<img src="https://raw.githubusercontent.com/ziyue16/beamerthemeUM/main/exampleimage1.PNG" height="480" width="480">
+<img src="exampleimage1.PNG" height="480" width="480">
 ![alt text](https://github.com/ziyue16/beamerthemeUM/blob/main/exampleimage1.PNG?raw=true)
 
 <img src="https://raw.githubusercontent.com/ziyue16/beamerthemeUM/main/exampleimage2.PNG" height="480" width="480">
