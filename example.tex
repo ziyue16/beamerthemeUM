@@ -1,0 +1,194 @@
+\documentclass[pdfpagelabels=false, usepdftitle=false]{beamer}
+\usetheme[navigation, sectiontitles]{UM}
+
+
+% ----------------------
+% title page information
+% ----------------------
+
+\title[Short Title]{Maastricht University Beamer Theme}
+\subtitle{This is a subtitle}
+
+\author[Me, other]{
+  My name \inst{1} \& Another Author \inst{2}
+}
+
+\institute[UM]{
+  \inst{1} ROA, Maastricht University \\
+  \inst{2} SBE, Maastricht University
+}
+
+\date{\today}
+
+
+% ---------------------
+% begin of presentation
+% ---------------------
+
+\begin{document}
+
+
+\UMtitleframe  % note that we *do not* use \titlepage
+
+
+% ----Frame------------
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+% ----Frame------------
+
+\section{Looks of environments}
+\subsection{Looks of list environments}
+
+\begin{frame}[fragile]{Looks of list environments}
+\begin{itemize}
+  \item Important point
+  \item Not really an important point, but let's pretend it is
+  \arrowitem Command \verb+\arrowitem+ is a shortcut for
+  \verb+\item[$\longrightarrow$]+
+\end{itemize}
+
+\vfill
+
+\begin{enumerate}
+  \item Breathe in
+  \item Breathe out
+\end{enumerate}
+
+\vfill
+
+\begin{description}
+  \item[UM Beamer theme] looks simple and nice
+\end{description}
+
+\end{frame}
+
+
+% ----Frame------------
+
+\subsection{Looks of block environments}
+\begin{frame}[fragile]{Looks of block environments}
+\begin{block}{Making things stand out}
+This is an example of citation \cite{sample}.
+\end{block}
+
+\vfill
+
+\begin{alertblock}{Colors}
+Official UM colors are available, see the next slide
+\end{alertblock}
+\end{frame}
+
+
+% ----Frame------------
+
+\section{Colors}
+\begin{frame}[fragile]{Colors}
+The UM Beamer theme defines the following official Maastricht University colors:
+
+\bigskip
+\textcolor{UMdarkblue}{\code{UMdarkblue}}:
+RGB 0,28,61
+
+\medskip
+\textcolor{UMlightblue}{\code{UMlightblue}}: RGB 0,162,219
+
+\medskip
+\textcolor{UMred}{\code{UMred}}: RGB 174,11,18
+
+\medskip
+\textcolor{UMorange}{\code{UMorgange}}: RGB 243,148,37
+
+\medskip
+\textcolor{UMorangered}{\code{UMorgangered}}: RGB 232,78,16
+
+\vfill
+
+\begin{itemize}
+  \arrowitem Command \verb+\alert()+ uses \alert{\code{UMred}} for
+  highlighting
+\end{itemize}
+\end{frame}
+
+
+% ----Frame------------
+
+\section{Using the theme}
+\begin{frame}[fragile]{Using the theme}
+\vspace{-2ex}
+\begin{itemize}
+  \arrowitem Include \verb+\usetheme{UM}+ in the preamble
+  \arrowitem Use \verb+\UMtitleframe+ to generate the title page
+\end{itemize}
+
+\vfill
+
+\alert{Theme options}:
+\begin{itemize}
+  \item \verb+navigation+: Display a navigation bar on the left hand side
+  \item \verb+sectiontitles+: Display a slide with the section title at the
+  start of each section
+\end{itemize}
+
+\alert{Example}: \verb+\usetheme[navigation, sectiontitles]{UM}+
+\end{frame}
+
+
+% ----Frame------------
+
+\section{Customized Commands}
+\subsection{Commands for mathematical notation}
+\begin{frame}[fragile]{Commands for mathematical notation}
+For mathematical notation inside math environments, the following commands are
+available:
+
+\bigskip
+\begin{itemize}
+  \item \verb+\mat{}+: For formatting matrices, e.g., $\mat{X}$
+  \medskip
+  \item \verb+\vect{}+: For formatting vectors, e.g., $\vect{x}$
+  \medskip
+  \item \verb+\obs{}+: For formatting observations, e.g., $\obs{x}$
+\end{itemize}
+\end{frame}
+
+
+% ----Frame------------
+
+\subsection{Other Commands}
+\begin{frame}[fragile]{Other commands provided by the theme}
+For writing about software, the following commands are available:
+\begin{itemize}
+  \item \verb+\proglang{}+: For highlighting programming languages, e.g.,
+  \proglang{R} \\
+  \smallskip
+  {\small (has no effect if you already use a sans serif font)}
+  \medskip
+  \item \verb+\pkg{}+: For highlighting software packages, e.g., \pkg{robmed}
+  \medskip
+  \item \verb+\code{}+: For highlighting functions, e.g.,
+  \code{test\_mediation()}
+\end{itemize}
+
+\vfill
+
+\begin{itemize}
+  \arrowitem Special characters currently need to be escaped within those
+  commands, e.g., \verb+\_+ for underscores
+\end{itemize}
+\end{frame}
+
+
+% ----Ref Frame--------
+
+\begin{frame}{Bibliography}
+\tiny 
+\bibliographystyle{apalike}
+\bibliography{ref.bib}
+\end{frame}
+
+
+\end{document}
