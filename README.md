@@ -1,6 +1,6 @@
 # Maastricht University Beamer Theme
 
-LaTeX Beamer theme for [Maastricht University ](https://www.maastrichtuniversity.nl/nl) based on the Microsoft Powerpoint template.
+LaTeX Beamer theme for [Maastricht University](https://www.maastrichtuniversity.nl/nl) based on the Microsoft Powerpoint template.
 
 
 ## Using the theme
@@ -26,3 +26,4 @@ An example for using these options is given below:
 <img src="exampleimage3.PNG" height="480">
 
 ## Acknowledgement
+This template is adapted from Andreas Alfons's [beamer template for Erasmus School of Economics](https://github.com/aalfons/beamerthemeESE/tree/main).
