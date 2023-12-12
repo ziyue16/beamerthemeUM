@@ -8,7 +8,7 @@ LaTeX Beamer theme for [Maastricht University](https://www.maastrichtuniversity.
 See also the file `example.tex` for a working example on how to use the theme.
 
 - Include `\usetheme{UM}` in the preamble.
-- Use `\UMtitlepage` to generate the title page.
+- Use `\UMtitleframe` to generate the title page.
 
 **Theme options**:
 
