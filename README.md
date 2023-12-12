@@ -21,8 +21,8 @@ An example for using these options is given below:
 ```
 
 ## Preview
-<img src="https://raw.githubusercontent.com/ziyue16/beamerthemeUM/main/exampleimage1.png" height="480" width="480">
-<img src="https://raw.githubusercontent.com/ziyue16/beamerthemeUM/main/exampleimage2.png" height="480" width="480">
-<img src="https://raw.githubusercontent.com/ziyue16/beamerthemeUM/main/exampleimage3.png" height="480" width="480">
+<img src="https://raw.githubusercontent.com/ziyue16/beamerthemeUM/main/exampleimage1.PNG" height="480" width="480">
+<img src="https://raw.githubusercontent.com/ziyue16/beamerthemeUM/main/exampleimage2.PNG" height="480" width="480">
+<img src="https://raw.githubusercontent.com/ziyue16/beamerthemeUM/main/exampleimage3.PNG" height="480" width="480">
 
 ## Acknowledgement
