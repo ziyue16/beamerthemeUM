@@ -12,15 +12,12 @@ See also the file `example.tex` for a working example on how to use the theme.
 
 **Theme options**:
 
-- `framenumbers`: Display slide numbers in the bottom right corner.
 - `navigation`: Display a navigation bar on the left hand side.
-- `nologo`: Do not display the UM logo in the bottom right corner.
-- `notes`: Include notes (generated with `\note{}` in between slides) in the final document.
 - `sectiontitles`: Display a slide with the section title at the start of each section.
 
 An example for using these options is given below:
 ```
-\usetheme[framenumbers, sectiontitles]{UM}
+\usetheme[navigation, sectiontitles]{UM}
 ```
 
 
