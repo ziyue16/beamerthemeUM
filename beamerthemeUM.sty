@@ -1,0 +1,218 @@
+% ----------------------------------------------------------
+% Modified from the ESE template:
+% Link: https://github.com/aalfons/beamerthemeESE/tree/main
+% ----------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeUM}%
+[2023/12/11 Maastricht University beamer theme]
+
+
+%% process options
+\newif\if@navigation
+\newif\if@sectiontitles
+\DeclareOption{navigation}{\@navigationtrue}
+\DeclareOption{sectiontitles}{\@sectiontitlestrue}
+\DeclareOption*{\PackageWarning{UM}{Unknown option `\CurrentOption'}}
+\ProcessOptions\relax
+
+
+%% encoding and font
+\RequirePackage[latin1]{inputenc}
+\RequirePackage[T1]{fontenc}  % better handling for words with accents
+\RequirePackage{lmodern}
+%% additional packages
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{hyperref}
+\RequirePackage{listings}
+\RequirePackage[round]{natbib}
+\RequirePackage{ulem}  % for underlining speaker
+\RequirePackage{upquote}
+\usepackage{xcolor}
+
+
+%% new commands
+\newcommand{\arrowitem}{\item[$\longrightarrow$]}  % use arrow in itemize
+\newcommand{\mat}[1]{\boldsymbol{#1}}   % matrix
+\newcommand{\vect}[1]{\boldsymbol{#1}}  % vector
+\newcommand{\obs}[1]{\mathbf{#1}}		    % observation
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\pkg}[1]{\texttt{#1}}
+\newcommand{\proglang}[1]{\textsf{#1}}
+
+
+%% define colors
+% UM colors
+\definecolor{UMdarkblue}{RGB}{0,28,61}
+\definecolor{UMwhite}{RGB}{255,255,255}
+\definecolor{UMorangered}{RGB}{232,78,16}
+\definecolor{UMlightblue}{RGB}{0,162,219}
+\definecolor{UMorange}{RGB}{243,148,37}
+\definecolor{UMred}{RGB}{174,11,18}
+% other colors
+\definecolor{lightgrey}{cmyk}{0.1,0,0,0.5}
+
+%% set colors for basic elements
+\setbeamercolor{title}{fg=UMdarkblue} 
+\setbeamercolor{subtitle}{fg=UMdarkblue}
+\setbeamercolor{author}{fg=UMwhite}
+\setbeamercolor{institute}{fg=UMwhite}
+\setbeamercolor{date}{fg=UMwhite}
+
+%% set colors for frame
+\setbeamercolor{frametitle}{fg=UMlightblue}
+%\setbeamercolor{section in head/foot}{bg=UMlightblue}
+%\setbeamercolor{author in head/foot}{bg=UMdarkblue}
+%\setbeamercolor{date in head/foot}{fg=UMdarkblue}
+\setbeamercolor{alerted text}{fg=UMred}
+\setbeamercolor{structure}{fg=UMlightblue}
+\setbeamercolor{page number in head/foot}{fg=UMdarkblue}
+
+%% set colors for sidebar
+\setbeamercolor{title in sidebar}{fg=UMdarkblue}
+\setbeamercolor{author in sidebar}{fg=UMdarkblue}
+\setbeamercolor{section in sidebar}{fg=UMlightblue}
+%\setbeamercolor{section in sidebar shaded}{fg=UMlightblue}
+\setbeamercolor{subsection in sidebar}{fg=UMlightblue}
+%\setbeamercolor{subsection in sidebar shaded}{fg=UMlightblue}
+\setbeamercolor{subsubsection in sidebar}{fg=UMlightblue}
+%\setbeamercolor{subsubsection in sidebar shaded}{fg=UMlightblue}
+
+%% set colors for block statements
+\setbeamercolor{block title}{fg=UMwhite, bg = UMorangered}
+\setbeamercolor{block body}{fg=UMwhite, bg=UMorange}
+\setbeamercolor{block title alerted}{fg=UMwhite, bg=UMlightblue}
+\setbeamercolor{block body alerted}{fg=UMwhite, bg=UMlightblue!40!white}
+\setbeamercolor{block title example}{fg=UMwhite, bg=UMlightblue}
+\setbeamercolor{block body example}{fg=UMwhite, bg=UMlightblue!40!white}
+
+
+%% set bold font for titles
+\setbeamerfont{title}{series=\bfseries}
+\setbeamerfont{subtitle}{series=\bfseries}
+\setbeamerfont{frametitle}{series=\bfseries}
+
+
+%% set theme
+\useinnertheme{circles}
+\useoutertheme{sidebar}
+\let\emph\textbf
+\setbeamertemplate{navigation symbols}{}
+
+
+%% insert frames with section titles if requested
+\if@sectiontitles
+  \AtBeginSection{
+    \begin{frame}
+    \centering \textcolor{UMlightblue}{\bfseries\Large Section \insertsectionnumber. \insertsection}
+    \end{frame}
+  }
+\fi
+
+
+%% define layout
+\newlength{\sidebarwidth}
+\if@navigation
+  % define navigation bar
+  \setbeamertemplate{sidebar left}{
+    \beamer@tempdim=\beamer@sidebarwidth
+    \advance\beamer@tempdim by -6pt
+    {\usebeamerfont{title in sidebar}
+      \vskip1.5em
+      \hskip3pt
+      \usebeamercolor[fg]{title in sidebar}
+      \insertshorttitle[width=\beamer@tempdim,respectlinebreaks]\par
+      \vskip1.25em
+    }
+    {
+      \hskip1pt 
+      \usebeamercolor[fg]{author in sidebar}
+      \usebeamerfont{author in sidebar}
+      \insertshortauthor[width=\beamer@tempdim,respectlinebreaks]\par
+      \vskip1.25em
+    }
+    \insertverticalnavigation{\beamer@sidebarwidth}
+    \vfill
+  }
+  % store width of sidebar
+  \setlength{\sidebarwidth}{\beamer@sidebarwidth}
+\else
+  % empty sidebar
+  \setbeamertemplate{sidebar left}{}
+  \setbeamersize{sidebar width left=0pt}
+  % store width of sidebar
+  \setlength{\sidebarwidth}{0pt}
+\fi
+
+
+\setbeamertemplate{footline}{
+   \begin{beamercolorbox}[ht=0ex,leftskip=1.85cm,rightskip=0.8cm]{UMwhite}
+    \usebeamercolor{UMdarkblue}
+    %\hrule
+    \vspace{-0.45cm}
+    \textcolor{UMwhite}{\code{UMwhite}} \hfill \insertframenumber \newline 
+    \makebox[0pt][l]{\includegraphics[width=25mm]{UMLogo.jpeg}} \hfill \textcolor{UMwhite}{\code{UMwhite}}
+   \end{beamercolorbox}
+   \vspace*{0.2cm}
+} 
+
+
+%% space between institutions on title page
+\makeatletter
+\def\beamer@andinst{\\[0.5em]}
+\makeatother
+
+
+%% set beamer size
+\setbeamersize{text margin left=10mm,text margin right=10mm} 
+
+
+%% new command to create title page
+\newcommand{\UMtitleframe}{
+  % set the title page design as the background 
+  {
+    \mode<beamer|handout>{
+      \usebackgroundtemplate{
+        \includegraphics[width=\paperwidth]{UMTitlePage.png}
+      }
+    }
+    % create title page
+    \begin{frame}[plain,t]
+    \vspace{22.4mm}
+    \hspace{2mm}\hspace{-\sidebarwidth}
+    % title, author, and date are put in a box
+    \begin{minipage}[t][40.6mm][c]{100mm}
+    \raggedright
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\par
+    \ifx\insertsubtitle\@empty
+    \else
+      \vskip0.5em\par
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\par
+    \fi
+    \vskip6em\par
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\par
+    \ifx\insertinstitute@empty
+    \else
+      \vskip0.6em\par
+    {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}\par
+    \fi
+    \ifx\insertdate\@empty
+    \else
+      \vskip3em\par
+    {\usebeamerfont{institute}\usebeamercolor[fg]{date}\insertdate}\par
+    \fi
+    \end{minipage}
+    \end{frame}
+  }
+}
+
+
+%% define display of code listings
+\lstset{basicstyle=\ttfamily\scriptsize, frame=trbl, numbers=none, upquote=true}
+
+
+%% make beamer work nicely with natbib
+\renewcommand*{\newblock}{}   % necessary to make beamer work with natbib
+\renewcommand{\bibsection}{}  % suppresses section for references
